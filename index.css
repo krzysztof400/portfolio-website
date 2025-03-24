@@ -219,11 +219,13 @@ section .job ul li {
         align-items: center; /* Center everything on mobile */
         overflow: auto;
         overflow-x: hidden;
+        font-size: 20px; /* Adjust font size for smaller screens */
     }
 
     /* when i have js add animation for scrolling header on mobile devices */
 
     .content {
+        width: 90%;
         padding: 10px; /* Adjust content padding for smaller screens */
         margin: 10px; /* Add margin for mobile screens */
         overflow: hidden;
