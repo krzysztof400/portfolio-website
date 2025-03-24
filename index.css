@@ -7,7 +7,7 @@ body {
     margin: 0;
     color: #ABB2B9; /* Lighter grey text color */
     font-family: Arial, sans-serif; /* A clean sans-serif font */
-    overflow: hidden;
+    overflow: auto;
 }
 
 /* Header Styling */
@@ -32,7 +32,7 @@ header {
     flex-direction: column;
     width: 65%;
     margin-left: 35%;
-    height: 100vh;
+    height: auto;
     overflow-y: auto;
     padding-right: 5%;
     padding-left: 5%;
@@ -144,6 +144,7 @@ a:hover {
 
 /* Work section Section */
 section {
+    margin-top: 100px;
     max-width: 60%;
     margin: 0 10%;
 }
