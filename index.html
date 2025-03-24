@@ -34,7 +34,7 @@
             </div>
         </header>
         <div class="content">
-            <div>
+            <section>
                 <h2 id="projects">Projects</h2>
                 <ul>
                     <li>
@@ -50,45 +50,166 @@
                         <p>Written in react google chrome extension for showing age in real time with decimal approximation. Uses react, css and chrome</p>
                     </li>
                 </ul>
-            </div>
-            <div>
+            </section>
+            <section>
                 <h2 id="skills">Skills</h2>
                 <ul>
                     <li>
-                        <h4><a>Java</a></h4>
+                        <input type="checkbox" id="java" class="skill-toggle">
+                        <label for="java"><h4><a>Java</a></h4></label>
+                        <div class="code">
+                            <pre><code>
+public void updateColor(int var1, int var2, Object var3, int var4, double var5, Cell[][] var7, int var8, int var9) {
+    while(!Thread.currentThread().isInterrupted()) {
+        try {
+            Thread.sleep(MyRandom.getSpeed((double)var4));
+        } catch (InterruptedException var13) {
+            Thread.currentThread().interrupt();
+            return;
+        }
+
+        synchronized(var3) {
+            if (MyRandom.getProbability(var5)) {
+                this.setColor(MyUtils.getRandomColor());
+            } else {
+                this.setColor(MyUtils.getNeighbourColor(this));
+            }
+
+            MyGUIUtils.setNewColor(this);
+            System.out.println("Start: " + (var1 * var9 + var2));
+            System.out.println("End: " + (var1 * var9 + var2));
+        }
+    }
+
+    }
+                            </code></pre>
+                        </div>
                     </li>
                     <li>
-                        <h4><a>C/C++</a></h4>
+                        <input type="checkbox" id="cpp" class="skill-toggle">
+                        <label for="cpp"><h4><a>C/C++</a></h4></label>
+                        <div class="code">
+                            <pre><code>
+std::vector<int> merge_sort(int n, std::vector<int> array);
+    std::vector<int> merge(std::vector<int> sorted_array1, std::vector<int> sorted_array2);
+    
+    std::vector<int> merge_sort (int n, std::vector<int> array){
+        int size = n;
+    
+        if (size <= 1){
+            return array;
+        }
+    
+        int mid = size/2;
+        std::vector<int> left_array(array.begin(), array.begin() + mid);
+        std::vector<int> right_array(array.begin() + mid, array.end());
+    
+        return merge(merge_sort(left_array.size(), left_array), merge_sort(right_array.size(), right_array));
+    }
+                            </code></pre>
+                        </div>
                     </li>
                     <li>
-                        <h4><a>Python</a></h4>
+                        <input type="checkbox" id="python" class="skill-toggle">
+                        <label for="python"><h4><a>Python</a></h4></label>
+                        <div class="code">
+                            <pre><code>
+def fit_with_one_nureon_in_layer_with_activation_neural_net(input, label, N=10000, alpha = 0.0001):
+w = np.random.normal(size=(2,), loc=0.1, scale=0.1) # initial values of weights
+b = np.random.normal(size=(1,), loc=0.1, scale=0.1)
+output = np.zeros(len(input)) # initial value of output
+error = np.zeros(len(input)) # error between output and label
+loss = []
+w_list = []
+for i in range(N):
+    j = np.random.randint(len(input))
+
+    Z = sigmoid(np.dot(input, w) + b)
+
+    error = np.mean((label - Z)**2)
+
+    derror_dZ = 2.0 * (label[j] - Z[j])
+    dZ_dw = input[j] * sigmoid_derivative(Z[j])
+
+    w = w + alpha * derror_dZ * dZ_dw
+    b = b + alpha * derror_dZ
+
+
+    if i % 1000 == 0:
+        print("iteration: ", i, "loss: ", error)
+        w_list.append(w.copy())
+        loss.append(error)
+
+return Z, loss, w_list
+                            </code></pre>
+                        </div>
                     </li>
                     <li>
-                        <h4><a>HTML/CSS/JavaScript/React</a></h4>
+                        <input type="checkbox" id="html-css-js" class="skill-toggle">
+                        <label for="html-css-js"><h4><a>HTML/CSS/JavaScript/React</a></h4></label>
+                        <div class="code">
+                            <pre><code>
+return (
+    <div className="settings-container">
+        <h1>Settings Page</h1>
+        <input 
+            type="date" 
+            onChange={(e) => handleSave('birthDate', e.target.value)} 
+            placeholder="Enter birth date"
+        />
+        <input 
+            type="time" 
+            onChange={(e) => handleSave('birthTime', e.target.value)} 
+            placeholder="Enter birth time"
+        />
+        <p>{message}</p>
+        <button onClick={() => navigateToPage('home')}>Back to Home</button>
+
+        <div className="dark-mode-toggle">
+            <div 
+                className={`toggle-switch ${darkMode ? 'active' : ''}`} 
+                onClick={toggleDarkMode}
+            ></div>
+            <label htmlFor="darkModeToggle">Dark Mode</label>
+        </div>
+    </div>
+);
+                            </code></pre>
+                        </div>
                     </li>
                 </ul>
-            </div>
-            <div>
+            </section>
+            
+            <section>
                 <h2 id="aboutMe">About me</h2>
                 <p>
                     I am computer science student on the university of Science and Technology in Wroclaw.
                     I am passionate about <a href="math.html">mathematics</a>, <a href="philosophy.html">philosophy</a>, <a href="history.html">history</a> and <a href="culture.html">culture</a> in general.
                 </p>
-            </div>
-            <div>
-                <h2 id="expirience">Expirience</h2>
-                <p>I only worked in non technical jobs. That is fundraising in greenpeace as a summer job and private tutoring in math, physics and history. Even though they aren't directly connected to tech they are showcasing my soft skills such as <b>communication</b> - in fundraising I had to approach people on the streets and convince them to subscribe money for fundation, something that deffenitly requires not only communication but also convincing abbilities. Private tutoring showcase that and additionally my <b>discipline</b> and abbility to organise my time, I organise them myself from advertising to the tutoring itself. I managed to tutour for 20 hours a week while studying, so I can manage studying and working at the same time.</p>
-                <div class="expirience">
-                    <h3>Greenpeace</h3>
-                    <p>Summer job in fundraising</p>
-                    
+            </section>
+            <section>
+                <h2>Work Experience</h2>
+                <div class="job">
+                    <h3>Fundraiser at Greenpeace</h3>
+                    <p>As a summer fundraiser, I approached people on the street to encourage them to donate to Greenpeace.</p>
+                    <ul>
+                        <li><b>Communication:</b> Engaged with strangers and explained Greenpeace’s mission clearly.</li>
+                        <li><b>Persuasion:</b> Convincing people to commit financially required strong persuasive abilities.</li>
+                        <li><b>Resilience:</b> Handling rejections and maintaining motivation in a fast-paced environment.</li>
+                    </ul>
                 </div>
-                <div class="expirience">
-                    <h3>Private tutoring</h3>
-                    <p>Math, physics and history</p>
+            
+                <div class="job">
+                    <h3>Private Tutor (Math, Physics, History)</h3>
+                    <p>I managed all aspects of tutoring, from advertising services to conducting lessons.</p>
+                    <ul>
+                        <li><b>Discipline:</b> Organized and maintained a consistent tutoring schedule.</li>
+                        <li><b>Time Management:</b> Balanced 20 hours of tutoring per week while studying.</li>
+                        <li><b>Independence:</b> Self-managed all aspects of the tutoring business.</li>
+                    </ul>
                 </div>
             </div>
-        </div>
+        </section>
         <footer>
             
         </footer>

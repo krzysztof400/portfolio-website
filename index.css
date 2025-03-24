@@ -43,7 +43,6 @@ nav {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 5%px;
     width: 30%;
 }
 
@@ -124,6 +123,7 @@ a {
 a:hover {
     transform: scale(1.1);
     color: lightblue;
+    cursor: pointer;
 }
 
 .digresion {
@@ -142,6 +142,76 @@ a:hover {
     text-align: center;
 }
 
+/* Work section Section */
+section {
+    max-width: 60%;
+    margin: 0 10%;
+}
+
+/* Individual job container */
+section .job {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+
+}
+
+section .job:hover {
+    transform: scale(1.05); /* Slightly enlarge the job container */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add a subtle shadow on hover */
+}
+
+/* Job titles */
+section .job h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+/* Job descriptions */
+section .job p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+/* List of skills */
+section .job ul {
+    padding-left: 20px;
+    list-style-type: disc;
+}
+
+/* Individual skills */
+section .job ul li {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+/* Hide the checkboxes */
+.skill-toggle {
+    display: none;
+}
+
+
+/* Initially hide the code */
+.code {
+    margin: 0;
+    font-size: 7%;
+    display: none;
+    background-color: #f7f7f7;
+    border-left: 3px solid #007bff;
+    margin-top: 10px;
+    background-color: #2d2d2d;  /* Dark background for code */
+    color: #f8f8f2;  /* Light text color */
+    border-left: 3px solid #007bff;
+    transition: opacity 0.5s ease, max-height 0.5s ease; /* Smooth fade and slide effect */
+}
+
+/* Display the code when the corresponding checkbox is checked */
+.skill-toggle:checked + label + .code {
+    display: block;
+}
+
 @media (max-aspect-ratio: 1/1) {
     body {
         flex-direction: column; /* Switch to column layout on mobile */
@@ -151,10 +221,6 @@ a:hover {
     }
 
     /* when i have js add animation for scrolling header on mobile devices */
-
-    nav {
-        display: none; /* Hide nav on mobile */
-    }
 
     .content {
         padding: 10px; /* Adjust content padding for smaller screens */
