@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="uft -8">
+        <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=0.1">
         <title>Krzysztof Zajac</title>
         <link rel="stylesheet" href="index.css">
     </head>
     <body>
         <header>
-            <img class="prof_pic" src="icons/profilepic .png"></img>
+            <img class="prof_pic" alt="profile_pic" src="icons/profilepic.png">
             <h1>Krzysztof Zajac</h1>
             <h2>Software Engineer</h2>
-            <p>Computer Science student at Wroclaw University of Science and Technology</p>
+            <p>Computer Science student<br>Wroclaw University of Science and Technology</p>
             <nav>
                 <ul class="main_menu">
                     <li><a href="#projects">Projects</a></li>
@@ -59,7 +59,7 @@
                         <label for="java"><h4><a>Java</a></h4></label>
                         <div class="code">
                             <pre><code>
-public void updateColor(int var1, int var2, Object var3, int var4, double var5, Cell[][] var7, int var8, int var9) {
+public void updateColor(int var1, int var2, Object var3, int var4 {
     while(!Thread.currentThread().isInterrupted()) {
         try {
             Thread.sleep(MyRandom.getSpeed((double)var4));
@@ -104,7 +104,7 @@ std::vector<int> merge_sort(int n, std::vector<int> array);
         std::vector<int> left_array(array.begin(), array.begin() + mid);
         std::vector<int> right_array(array.begin() + mid, array.end());
     
-        return merge(merge_sort(left_array.size(), left_array), merge_sort(right_array.size(), right_array));
+        return merge(merge_sort(left_array.size(), left_array);
     }
                             </code></pre>
                         </div>
@@ -149,31 +149,16 @@ return Z, loss, w_list
                         <label for="html-css-js"><h4><a>HTML/CSS/JavaScript/React</a></h4></label>
                         <div class="code">
                             <pre><code>
-return (
-    <div className="settings-container">
-        <h1>Settings Page</h1>
-        <input 
-            type="date" 
-            onChange={(e) => handleSave('birthDate', e.target.value)} 
-            placeholder="Enter birth date"
-        />
-        <input 
-            type="time" 
-            onChange={(e) => handleSave('birthTime', e.target.value)} 
-            placeholder="Enter birth time"
-        />
-        <p>{message}</p>
-        <button onClick={() => navigateToPage('home')}>Back to Home</button>
-
-        <div className="dark-mode-toggle">
-            <div 
-                className={`toggle-switch ${darkMode ? 'active' : ''}`} 
-                onClick={toggleDarkMode}
-            ></div>
-            <label htmlFor="darkModeToggle">Dark Mode</label>
-        </div>
-    </div>
-);
+document.querySelectorAll('.skill-toggle').forEach(toggle => {
+    toggle.addEventListener('change', function () {
+        const codeBlock = this.nextElementSibling.nextElementSibling;
+        if (this.checked) {
+            codeBlock.style.display = 'block';
+        } else {
+            codeBlock.style.display = 'none';
+        }
+    });
+});
                             </code></pre>
                         </div>
                     </li>
