@@ -1,0 +1,329 @@
+$main-color: #1E2429;
+$secondary-color: #2d2d2d;
+$accent-color: #007bff;
+$font-color: #ABB2B9;
+$secondary-font-color: #b0c4de;
+$hover-color: lightblue;
+$base-font-size: 1rem; // Base font size in rem units
+$font-sizes: (
+  small: 0.875rem,    // 14px equivalent
+  base: 1rem,         // 16px equivalent
+  medium: 1.125rem,   // 18px equivalent
+  large: 1.25rem,     // 20px equivalent
+  xlarge: 1.5rem      // 24px equivalent
+);
+$font-family: Arial, sans-serif;
+$spacing-unit: 0.625rem; // 10px equivalent
+$border-radius: 0.5rem;  // 8px equivalent
+$transition-speed: 0.3s;
+
+// Media query breakpoints
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+
+@mixin flex-container($direction: row, $justify: center, $align: center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin hover-effect {
+  transition: all $transition-speed ease;
+  &:hover {
+    transform: scale(1.05);
+    color: $hover-color;
+  }
+}
+
+@mixin box-shadow($opacity: 0.2) {
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, $opacity);
+}
+
+@function spacing($multiplier: 1) {
+  @return $spacing-unit * $multiplier;
+}
+
+@function get-font-size($size) {
+  @return map-get($font-sizes, $size);
+}
+
+// Responsive font size mixin
+@mixin responsive-font($size) {
+  font-size: get-font-size($size);
+  
+  @media screen and (min-width: $breakpoint-tablet) {
+    font-size: calc(#{get-font-size($size)} * 1.1);
+  }
+  
+  @media screen and (min-width: $breakpoint-desktop) {
+    font-size: calc(#{get-font-size($size)} * 1.2);
+  }
+}
+
+// For high-density screens
+@mixin high-dpi-font-adjustment {
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    font-size: calc(100% + 0.2rem);
+  }
+}
+
+%card-style {
+  border-radius: $border-radius;
+  padding: spacing(1.5);
+  margin-bottom: spacing(1.5);
+  @include box-shadow;
+}
+
+%hover-transition {
+  transition: color $transition-speed ease, transform $transition-speed ease;
+}
+
+html {
+  // Set base font size for rem calculations
+  font-size: 100%; // 16px is usually the browser default
+  
+  // Adjust base font size for different viewport widths
+  @media screen and (max-width: $breakpoint-mobile) {
+    font-size: 112.5%; // Increase base size on mobile (18px)
+  }
+  
+  @media screen and (min-width: $breakpoint-desktop) {
+    font-size: 106.25%; // Slightly larger on desktop (17px)
+  }
+  
+  // Adjust for high-density screens
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    font-size: 118.75%; // Larger base size on high-DPI screens (19px)
+  }
+}
+
+body {
+  background-color: $main-color;
+  box-sizing: border-box;
+  @include flex-container(row, flex-start, stretch);
+  min-height: 100vh;
+  margin: 0;
+  color: $font-color;
+  font-family: $font-family;
+  font-size: get-font-size(base);
+  @include high-dpi-font-adjustment;
+  overflow: auto;
+}
+
+header {
+  margin-top: spacing(2);
+  position: fixed;
+  @include flex-container(column, flex-start, center);
+  color: white;
+  width: 30%;
+  overflow: hidden;
+  padding: 5%;
+  height: 100vh;
+  left: 0;
+  
+  p {
+    text-align: center;
+    @include responsive-font(base);
+  }
+  
+  .prof_pic {
+    width: 40%;
+    height: width;
+    border-radius: 50%;
+    object-fit: cover;
+    @include box-shadow;
+    margin-bottom: spacing(2);
+  }
+}
+
+.content {
+  @include flex-container(column, flex-start, flex-start);
+  width: 65%;
+  margin-left: 35%;
+  height: auto;
+  overflow-y: auto;
+  padding-right: 5%;
+  padding-left: 5%;
+}
+
+nav {
+  @include flex-container(column);
+  width: 30%;
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+    
+    li {
+      margin: 10% 0;
+      position: relative;
+      font-family: $font-family;
+      text-transform: uppercase;
+      color: $secondary-font-color;
+      @include responsive-font(large);
+      @extend %hover-transition;
+      
+      &:hover {
+        color: #ffffff;
+      }
+      
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        width: 2.5rem;
+        height: 1px;
+        background-color: $secondary-font-color;
+        transition: width $transition-speed ease, left $transition-speed ease, right $transition-speed ease;
+      }
+      
+      &::before {
+        left: -3.125rem;
+      }
+      
+      &::after {
+        right: -3.125rem;
+      }
+      
+      &:hover::before {
+        width: 3.75rem;
+        left: -4.375rem;
+      }
+      
+      &:hover::after {
+        width: 3.75rem;
+        right: -4.375rem;
+      }
+    }
+  }
+}
+
+.links {
+  @include flex-container(row, flex-end, center);
+  flex-wrap: wrap;
+  gap: spacing(1);
+  
+  img {
+    width: 5vh;
+    max-height: 5vh;
+    object-fit: cover;
+    border-radius: 5%;
+  }
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  margin: spacing(1) 0;
+  @include hover-effect;
+  @include responsive-font(base);
+  
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.digresion {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  @include flex-container(column);
+  
+  .paragraph-in-digression {
+    margin-top: 20%;
+    width: 50%;
+    text-align: center;
+    @include responsive-font(medium);
+  }
+}
+
+section {
+  margin-top: spacing(10);
+  max-width: 60%;
+  margin: 0 10%;
+  
+  .job {
+    @extend %card-style;
+    border: 1px solid #ccc;
+    transition: transform $transition-speed ease, box-shadow $transition-speed ease;
+    
+    &:hover {
+      transform: scale(1.05);
+      @include box-shadow(0.2);
+    }
+    
+    h3 {
+      @include responsive-font(large);
+      margin-bottom: spacing(1);
+    }
+    
+    p {
+      @include responsive-font(base);
+      margin-bottom: spacing(1);
+    }
+    
+    ul {
+      padding-left: spacing(2);
+      list-style-type: disc;
+      
+      li {
+        @include responsive-font(base);
+        margin-bottom: spacing(0.5);
+      }
+    }
+  }
+}
+
+.skill-toggle {
+  display: none;
+  
+  &:checked + label + .code {
+    display: block;
+  }
+}
+
+.code {
+  margin: 0;
+  font-size: 0.875rem;
+  display: none;
+  background-color: $secondary-color;
+  color: #f8f8f2;
+  border-left: 3px solid $accent-color;
+  margin-top: spacing(1);
+  transition: opacity $transition-speed ease, max-height $transition-speed ease;
+}
+
+@media (max-aspect-ratio: 1/1) {
+  body {
+    flex-direction: column;
+    align-items: center;
+    overflow: auto;
+    overflow-x: hidden;
+    @include responsive-font(large);
+  }
+  
+  .content {
+    width: 90%;
+    padding: spacing(1);
+    margin: spacing(1);
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    .section {
+      width: 100%;
+    }
+  }
+  
+  header {
+    margin: 0%;
+    padding: 0;
+    width: 100%;
+    text-align: center;
+    position: inherit;
+    overflow: auto;
+  }
+}

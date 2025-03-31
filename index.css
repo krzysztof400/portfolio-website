@@ -1,9 +1,6 @@
-/* * {
-    box-sizing: border-box;
-} */
-
 body {
     background-color: #1E2429; 
+    box-sizing: border-box;
     display: flex;
     flex-direction: row;
     min-height: 100vh;
