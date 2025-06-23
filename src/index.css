@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-primary text-secondary font-sans;
+  }
+}
+
+@layer components {
+  .nav-item {
+    @apply relative text-accent text-xl uppercase transition-all duration-300 hover:text-white hover:scale-110;
+  }
+  
+  .nav-item::before,
+  .nav-item::after {
+    @apply absolute top-1/2 w-10 h-px bg-accent transition-all duration-300;
+    content: '';
+  }
+  
+  .nav-item::before {
+    @apply -left-12;
+  }
+  
+  .nav-item::after {
+    @apply -right-12;
+  }
+  
+  .nav-item:hover::before {
+    @apply w-16 -left-20;
+  }
+  
+  .nav-item:hover::after {
+    @apply w-16 -right-20;
+  }
+  
+  .skill-code {
+    @apply bg-gray-800 text-gray-100 border-l-4 border-blue-500 p-4 rounded-r-lg transition-all duration-500 overflow-x-auto;
+  }
+  
+  .job-card {
+    @apply border border-gray-500 rounded-lg p-6 mb-4 transition-all duration-300 hover:scale-105 hover:shadow-xl;
+  }
+}
