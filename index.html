@@ -56,111 +56,27 @@
                 <ul>
                     <li>
                         <input type="checkbox" id="java" class="skill-toggle">
-                        <label for="java"><h4><a>Java</a></h4></label>
-                        <div class="code">
-                            <pre><code>
-public void updateColor(int var1, int var2, Object var3, int var4 {
-    while(!Thread.currentThread().isInterrupted()) {
-        try {
-            Thread.sleep(MyRandom.getSpeed((double)var4));
-        } catch (InterruptedException var13) {
-            Thread.currentThread().interrupt();
-            return;
-        }
-
-        synchronized(var3) {
-            if (MyRandom.getProbability(var5)) {
-                this.setColor(MyUtils.getRandomColor());
-            } else {
-                this.setColor(MyUtils.getNeighbourColor(this));
-            }
-
-            MyGUIUtils.setNewColor(this);
-            System.out.println("Start: " + (var1 * var9 + var2));
-            System.out.println("End: " + (var1 * var9 + var2));
-        }
-    }
-
-    }
-                            </code></pre>
-                        </div>
+                        <label for="java"></label>
+                            <h4><a href="https://www.oracle.com/java/" target="_blank">Java</a></h4>
+                        </label>
                     </li>
                     <li>
                         <input type="checkbox" id="cpp" class="skill-toggle">
-                        <label for="cpp"><h4><a>C/C++</a></h4></label>
-                        <div class="code">
-                            <pre><code>
-std::vector<int> merge_sort(int n, std::vector<int> array);
-    std::vector<int> merge(std::vector<int> sorted_array1, std::vector<int> sorted_array2);
-    
-    std::vector<int> merge_sort (int n, std::vector<int> array){
-        int size = n;
-    
-        if (size <= 1){
-            return array;
-        }
-    
-        int mid = size/2;
-        std::vector<int> left_array(array.begin(), array.begin() + mid);
-        std::vector<int> right_array(array.begin() + mid, array.end());
-    
-        return merge(merge_sort(left_array.size(), left_array);
-    }
-                            </code></pre>
-                        </div>
+                        <label for="cpp">
+                            <h4><a href="https://isocpp.org/" target="_blank">C/C++</a></h4>
+                        </label>
                     </li>
                     <li>
                         <input type="checkbox" id="python" class="skill-toggle">
-                        <label for="python"><h4><a>Python</a></h4></label>
-                        <div class="code">
-                            <pre><code>
-def fit_with_one_nureon_in_layer_with_activation_neural_net(input, label, N=10000, alpha = 0.0001):
-w = np.random.normal(size=(2,), loc=0.1, scale=0.1) # initial values of weights
-b = np.random.normal(size=(1,), loc=0.1, scale=0.1)
-output = np.zeros(len(input)) # initial value of output
-error = np.zeros(len(input)) # error between output and label
-loss = []
-w_list = []
-for i in range(N):
-    j = np.random.randint(len(input))
-
-    Z = sigmoid(np.dot(input, w) + b)
-
-    error = np.mean((label - Z)**2)
-
-    derror_dZ = 2.0 * (label[j] - Z[j])
-    dZ_dw = input[j] * sigmoid_derivative(Z[j])
-
-    w = w + alpha * derror_dZ * dZ_dw
-    b = b + alpha * derror_dZ
-
-
-    if i % 1000 == 0:
-        print("iteration: ", i, "loss: ", error)
-        w_list.append(w.copy())
-        loss.append(error)
-
-return Z, loss, w_list
-                            </code></pre>
-                        </div>
+                        <label for="python">
+                            <h4><a href="https://www.python.org/" target="_blank">Python</a></h4>
+                        </label>
                     </li>
                     <li>
                         <input type="checkbox" id="html-css-js" class="skill-toggle">
-                        <label for="html-css-js"><h4><a>HTML/CSS/JavaScript/React</a></h4></label>
-                        <div class="code">
-                            <pre><code>
-document.querySelectorAll('.skill-toggle').forEach(toggle => {
-    toggle.addEventListener('change', function () {
-        const codeBlock = this.nextElementSibling.nextElementSibling;
-        if (this.checked) {
-            codeBlock.style.display = 'block';
-        } else {
-            codeBlock.style.display = 'none';
-        }
-    });
-});
-                            </code></pre>
-                        </div>
+                        <label for="html-css-js">
+                            <h4><a href="https://developer.mozilla.org/en-US/docs/Web" target="_blank">HTML/CSS/JavaScript/React</a></h4>
+                        </label>
                     </li>
                 </ul>
             </section>
