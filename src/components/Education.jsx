@@ -5,7 +5,7 @@ function Education() {
         details: "Wrocław University of Science and Technology, 2023 - present",
       },
       {
-        degree: "Foreign Exchange",
+        degree: "Erasmus+ exchange semester",
         details: "Paris ESIEE, fall of 2024",
       },
     ];

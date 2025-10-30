@@ -6,7 +6,7 @@ function Projects() {
         description: "Program showcasing object oriented programming"
       },
       {
-        title: "My own neural network implementation",
+        title: "Vectorflow - simple neural network library",
         link: "https://github.com/krzysztof400/vectorflow",
         description: "Project in which I have implemented gradial descent algorithm in creation of my own simple neural network library"
       },

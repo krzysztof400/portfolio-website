@@ -9,10 +9,10 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/math" element={<Math />} />
+      {/* <Route path="/math" element={<Math />} />
       <Route path="/philosophy" element={<Philosophy />} />
       <Route path="/history" element={<History />} />
-      <Route path="/culture" element={<Culture />} />
+      <Route path="/culture" element={<Culture />} /> */}
     </Routes>
   )
 }
